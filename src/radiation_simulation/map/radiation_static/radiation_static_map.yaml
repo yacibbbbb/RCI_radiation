@@ -1,0 +1,9 @@
+free_thresh: 0.1
+image: radiation_static_map.pgm
+negate: 0
+occupied_thresh: 0.8
+origin:
+- -9.5
+- -10.0
+- 0.0
+resolution: 0.25
