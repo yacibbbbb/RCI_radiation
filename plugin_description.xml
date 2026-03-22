@@ -1,0 +1,23 @@
+<library path="radiation_layer">
+  <class name="radiation_layer::RadiationLocalLayer"
+         type="radiation_layer::RadiationLocalLayer"
+         base_class_type="nav2_costmap_2d::Layer">
+    <description>Radiation Dynamic costmap layer for updating local costmap</description>
+  </class>
+  <class name="radiation_layer::RadiationGlobalLayer"
+         type="radiation_layer::RadiationGlobalLayer"
+         base_class_type="nav2_costmap_2d::Layer">
+    <description>Radiation Dynamic costmap layer for updating global costmap</description>
+  </class>
+</library>
+
+<library path="radiation_static_layer">
+  <class name="radiation_static_layer::RadiationStaticLayer"
+         type="radiation_static_layer::RadiationStaticLayer"
+         base_class_type="nav2_costmap_2d::Layer">
+    <description>
+      Radiation-based Static Costmap Layer using a static occupancy grid
+      Topic: /radiation_static_map
+    </description>
+  </class>
+</library>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 3.0.1</authoring_tool>
+    </contributor>
+    <created>2025-05-19T16:49:26</created>
+    <modified>2025-05-19T16:49:26</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="Base_Material_-_Opaque_002-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0.5019608 0.5019608 0.5019608 1</color>
+            </diffuse>
+            <reflectivity>
+              <float sid="specular">1</float>
+            </reflectivity>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images/>
+  <library_materials>
+    <material id="Base_Material_-_Opaque_002-material" name="Base Material - Opaque.002">
+      <instance_effect url="#Base_Material_-_Opaque_002-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="MezzanineWalls_concrete_002-mesh" name="MezzanineWalls_concrete.002">
+      <mesh>
+        <source id="MezzanineWalls_concrete_002-mesh-positions">
+          <float_array id="MezzanineWalls_concrete_002-mesh-positions-array" count="75">6.582 -4.841 -0.4400006 -7.118 -4.840999 -0.4400006 -7.118 -4.840999 0.05999934 6.582 -4.841 0.05999934 -0.2679998 -4.840999 -0.1900006 -7.118 4.859001 -0.4400006 -7.118 4.859001 0.05999934 -7.118 0.009001135 -0.1900006 -7.267999 4.859001 0.05999934 -7.267999 -4.990999 0.05999934 6.582 -4.991 0.05999934 6.582 -4.991 0.5599994 6.582 4.859 0.5599994 6.582 4.859 -0.4400006 6.582 -0.06599938 0.05999934 -7.267999 5.009001 -0.4400006 -7.267999 -4.990999 -0.4400006 -7.267999 4.859001 0.5599994 -7.267999 5.009001 0.5599994 6.732 5.009 -0.4400006 6.732 5.009 0.5599994 -0.2679994 5.009001 0.05999934 6.732 -4.991 -0.4400006 6.732 -4.991 0.5599994 6.732 0.009000539 0.05999934</float_array>
+          <technique_common>
+            <accessor source="#MezzanineWalls_concrete_002-mesh-positions-array" count="25" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="MezzanineWalls_concrete_002-mesh-normals">
+          <float_array id="MezzanineWalls_concrete_002-mesh-normals-array" count="78">0 1 0 0 1 0 1 0 0 1 0 0 0 0 1 0 0 1 0 0 1 -1 0 0 -1 1.93639e-7 0 -1 -3.17891e-6 0 0 1 0 1 0 0 0 -1 0 0 -1 2.17983e-6 0 -1 0 0 -1 0 0 -1 0 0 -1 0 6.35783e-7 0 1 2.04827e-7 0 -1 0 0 -1 0 0 -1 0 0 -1 -2.04828e-7 0 -1 0 0 -1 0 0 -1</float_array>
+          <technique_common>
+            <accessor source="#MezzanineWalls_concrete_002-mesh-normals-array" count="26" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="MezzanineWalls_concrete_002-mesh-map-0">
+          <float_array id="MezzanineWalls_concrete_002-mesh-map-0-array" count="300">0 50 0 0 685 25 685 25 0 0 1370 0 685 25 1370 0 1370 50 1370 50 0 50 685 25 0 50 0 0 485 25 485 25 0 0 970 0 485 25 970 0 970 50 970 50 0 50 485 25 -492.5 -677.5 -492.5 -692.5 477.5 -677.5 477.5 -677.5 -492.5 -692.5 492.5 -692.5 477.5 -677.5 492.5 -692.5 492.5 692.5 492.5 692.5 477.5 692.5 477.5 -677.5 0 0 970 0 492.5 50 492.5 50 970 0 970 50 492.5 50 970 50 985 100 985 100 970 50 985 50 985 100 0 100 492.5 50 492.5 50 0 100 0 0 0 100 0 0 15 50 15 50 0 0 1000 0 15 50 1000 0 1000 50 15 50 15 100 0 100 0 100 0 0 700 50 700 50 0 0 1400 0 700 50 1400 0 1400 100 1400 100 0 100 700 50 0 100 0 0 500 50 500 50 0 0 1000 0 500 50 1000 0 1000 100 1000 100 0 100 500 50 -1385 50 -1385 0 0 50 0 50 -1385 0 15 0 0 50 15 0 15 100 15 100 0 100 0 50 15 0 1385 0 15 50 15 50 1385 0 1385 100 15 50 1385 100 0 100 0 100 0 50 15 50 -485 -700 -485 685 -500 -700 -500 -700 -485 685 -500 700 -500 700 -485 685 500 700 500 700 -485 685 500 685 -485 -685 500 -700 485 -685 485 -685 500 -700 500 700 485 -685 500 700 485 685 485 685 500 700 -500 700 485 685 -500 700 -485 685 -485 685 -500 700 -500 -700 -485 685 -500 -700 -485 -685 -485 -685 -500 -700 500 -700</float_array>
+          <technique_common>
+            <accessor source="#MezzanineWalls_concrete_002-mesh-map-0-array" count="150" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="MezzanineWalls_concrete_002-mesh-vertices">
+          <input semantic="POSITION" source="#MezzanineWalls_concrete_002-mesh-positions"/>
+        </vertices>
+        <triangles material="Base_Material_-_Opaque_002-material" count="50">
+          <input semantic="VERTEX" source="#MezzanineWalls_concrete_002-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#MezzanineWalls_concrete_002-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#MezzanineWalls_concrete_002-mesh-map-0" offset="2" set="0"/>
+          <p>3 0 0 0 0 1 4 0 2 4 0 3 0 0 4 1 0 5 4 1 6 1 1 7 2 1 8 2 1 9 3 1 10 4 1 11 2 2 12 1 2 13 7 2 14 7 3 15 1 3 16 5 3 17 7 3 18 5 3 19 6 3 20 6 3 21 2 3 22 7 3 23 6 4 24 8 4 25 2 4 26 2 4 27 8 4 28 9 4 29 2 5 30 9 5 31 10 5 32 10 6 33 3 6 34 2 6 35 13 7 36 0 7 37 14 7 38 14 7 39 0 7 40 3 7 41 14 7 42 3 7 43 11 7 44 11 7 45 3 7 46 10 7 47 11 7 48 12 7 49 14 7 50 14 8 51 12 8 52 13 8 53 18 9 54 15 9 55 8 9 56 8 7 57 15 7 58 16 7 59 8 7 60 16 7 61 9 7 62 8 7 63 17 7 64 18 7 65 20 10 66 19 10 67 21 10 68 21 10 69 19 10 70 15 10 71 21 10 72 15 10 73 18 10 74 18 10 75 20 10 76 21 10 77 23 11 78 22 11 79 24 11 80 24 3 81 22 3 82 19 3 83 24 3 84 19 3 85 20 3 86 20 3 87 23 3 88 24 3 89 9 12 90 16 12 91 10 12 92 10 13 93 16 13 94 22 13 95 10 14 96 22 14 97 23 14 98 23 14 99 11 14 100 10 14 101 5 15 102 13 15 103 6 15 104 6 16 105 13 16 106 12 16 107 6 17 108 12 17 109 17 17 110 17 14 111 8 14 112 6 14 113 17 4 114 12 4 115 18 4 116 18 4 117 12 4 118 20 4 119 20 18 120 12 18 121 23 18 122 23 4 123 12 4 124 11 4 125 13 19 126 22 19 127 0 19 128 0 20 129 22 20 130 16 20 131 0 21 132 16 21 133 1 21 134 1 22 135 16 22 136 15 22 137 1 23 138 15 23 139 5 23 140 5 24 141 15 24 142 19 24 143 5 25 144 19 25 145 13 25 146 13 22 147 19 22 148 22 22 149</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="MezzanineWalls_concrete_001" name="MezzanineWalls_concrete.001" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#MezzanineWalls_concrete_002-mesh" name="MezzanineWalls_concrete.001">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Base_Material_-_Opaque_002-material" target="#Base_Material_-_Opaque_002-material">
+                <bind_vertex_input semantic="MezzanineWalls_concrete_002-mesh-map-0" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
