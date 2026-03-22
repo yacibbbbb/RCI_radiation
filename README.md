@@ -9,7 +9,7 @@ It includes custom Gazebo plugins for radiation sources, radiation sensors, and 
 The radiation-related Gazebo plugin implementation in this repository was developed with reference to prior work on simulating ionising radiation in Gazebo for robotic nuclear inspection.  
 The layered costmap design for radiation-aware navigation was also informed by prior work on real-time radiation avoidance using layered costmaps for mobile robots.
 
-This repository contains only the `radiation_simulation` package under `src/radiation_simulation`.
+This repository is organized as a single ROS 2 package at the repository root.
 
 ## Features
 - Gazebo-based radiation source, sensor, and obstacle plugins
@@ -134,7 +134,7 @@ It is useful for more intuitive and visually interpretable demonstrations of rad
 The logger stores CSV files under:
 
 ```bash
-src/radiation_simulation/data/cumulation/<world_name>/
+data/cumulation/<world_name>/
 ```
 
 For the current `single_source` waypoint setup, the logged CSV is configured as:
@@ -155,7 +155,7 @@ The logger records:
 You can analyze cumulative exposure results using:
 
 ```bash
-python3 src/radiation_simulation/scripts/cumulation_analyzer.py
+python3 scripts/cumulation_analyzer.py
 ```
 
 The analyzer is configured for the `single_source` experiment and compares:
@@ -178,24 +178,23 @@ Example:
 ```bash
 RCI_radiation/
 ├── .gitignore
+├── CMakeLists.txt
 ├── LICENSE
 ├── README.md
-└── src/
-    └── radiation_simulation/
-        ├── CMakeLists.txt
-        ├── package.xml
-        ├── plugin_description.xml
-        ├── config/
-        ├── data/
-        ├── include/
-        ├── launch/
-        ├── map/
-        ├── models/
-        ├── rviz/
-        ├── scripts/
-        ├── src/
-        ├── urdf/
-        └── worlds/
+├── package.xml
+├── plugin_description.xml
+├── config/
+├── data/
+├── include/
+│   └── radiation_simulation/
+├── launch/
+├── map/
+├── models/
+├── rviz/
+├── scripts/
+├── src/
+├── urdf/
+└── worlds/
 ```
 
 ## Main Components
@@ -225,7 +224,7 @@ RCI_radiation/
 
 * This README intentionally focuses on simulation, plugins, radiation-aware costmaps, navigation, and logging utilities.
 * Source localization-related components are not covered here.
-* This repository is intended to contain source files only. Do **not** commit `build/`, `install/`, or `log/` directories.
+* This repository itself is the `radiation_simulation` ROS 2 package.
 * Some logs, messages, comments, or auxiliary outputs in this repository are written in **Korean**.
 
 ## References
