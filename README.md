@@ -246,7 +246,7 @@ The radiation-aware navigation and layered costmap design was developed with ref
 
 ## Software Registration
 
-The autonomous navigation simulation program for radiation map construction developed in this project has been officially registered for copyright.
+The autonomous navigation simulation program for radiation map construction developed in this project has been **officially registered for copyright**.
 
 <img width="698" height="642" alt="radiation_map" src="https://github.com/user-attachments/assets/420fd1fe-7779-40e9-af0f-7ec12ed5eec6" />
 
