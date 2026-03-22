@@ -1,0 +1,3 @@
+idw:
+  sigma: 0.4 # 0.15
+  threshold: 70.0
