@@ -1,11 +1,13 @@
-# Python cache
+build/
+install/
+log/
+
 __pycache__/
 *.pyc
-*.pyo
 
-# VSCode settings
 .vscode/
-
-# OS files
+.idea/
 .DS_Store
-Thumbs.db
+
+src/radiation_simulation/data/cumulation/**/*.csv
+src/radiation_simulation/data/current_map/**/*.csv
