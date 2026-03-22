@@ -9,5 +9,5 @@ __pycache__/
 .idea/
 .DS_Store
 
-src/radiation_simulation/data/cumulation/**/*.csv
-src/radiation_simulation/data/current_map/**/*.csv
+data/cumulation/**/*.csv
+data/current_map/**/*.csv
