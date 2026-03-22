@@ -1,5 +1,0 @@
-name,x,y,size_x,size_y
-radiation_obstacle_wall_bottom,0,-5.05,13,0.1
-radiation_obstacle_wall_left,-6.55,0,0.1,13
-radiation_obstacle_wall_right,6.55,0,0.1,13
-radiation_obstacle_wall_top,0,5.05,13,0.1
