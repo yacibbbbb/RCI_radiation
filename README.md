@@ -1,64 +1,171 @@
-# [This is Example for Readme File]
+````md
+# radiation_simulation
 
-Short one-line description.  
-예: MPC-based Whole-Body Controller for Humanoid Robots.
+ROS 2 and Gazebo-based radiation simulation and radiation-aware navigation package.
 
 ## Overview
-이 저장소는 [로봇 이름/시뮬레이터]에서 [제어 방법]을 구현한 ROS 2 패키지입니다.  
-본 연구는 [논문명/프로젝트명]의 일부로 수행되었습니다.
+This repository provides a ROS 2 package for simulating radiation-aware mobile robot operation in Gazebo.  
+It includes custom Gazebo plugins for radiation sources, radiation sensors, and attenuating obstacles, along with radiation map generation, visualization, local/global radiation-aware costmap layers, and waypoint-based autonomous navigation.
+
+The radiation-related Gazebo plugin implementation in this repository was developed with reference to prior work on simulating ionising radiation in Gazebo for robotic nuclear inspection.  
+The layered costmap design for radiation-aware navigation was also informed by prior work on real-time radiation avoidance using layered costmaps for mobile robots.
 
 ## Dependencies
-- ROS 2 Humble (>= 2022.05)
+- ROS 2 Humble
 - Python 3.10 / C++17
-- [Pinocchio](https://github.com/stack-of-tasks/pinocchio) >= 2.6.15
-- [acados](https://github.com/acados/acados) >= 0.2.0
+- Gazebo Classic / gazebo_ros
+- Nav2
+- RViz2
+- TurtleBot3 description
+- pluginlib
+- tf2 / tf2_ros / tf2_geometry_msgs
+- OpenCV
 
-설치 예시:
+Recommended installation:
 ```bash
-sudo apt install ros-humble-ros2-control ros-humble-gazebo-ros-pkgs
-pip install pinocchio==2.6.15
-```
+sudo apt update
+sudo apt install -y \
+  ros-humble-gazebo-ros-pkgs \
+  ros-humble-nav2-bringup \
+  ros-humble-nav2-msgs \
+  ros-humble-nav2-map-server \
+  ros-humble-nav2-lifecycle-manager \
+  ros-humble-rviz2 \
+  ros-humble-turtlebot3-description \
+  ros-humble-pluginlib \
+  ros-humble-tf2-ros \
+  ros-humble-tf2-geometry-msgs \
+  ros-humble-robot-state-publisher \
+  libgazebo11-dev \
+  qtbase5-dev \
+  libopencv-dev
+````
+
+## Additional External Packages
+
+This repository only contains the `radiation_simulation` package under `src/radiation_simulation`.
+
+If you want to run frontier exploration experiments based on `m-explore-ros2` / `explore_lite`, install that package separately in your ROS 2 workspace instead of expecting it to be included in this repository.
 
 ## Installation
+
 ```bash
-mkdir -p ~/ros2_ws/src && cd ~/ros2_ws/src
+mkdir -p ~/radiation_simulation_ws/src
+cd ~/radiation_simulation_ws/src
 git clone https://github.com/<org>/<repo>.git
-cd ~/ros2_ws
+
+cd ~/radiation_simulation_ws
 colcon build --symlink-install
 source install/setup.bash
 ```
 
 ## Usage
+
+### 1) Gazebo radiation simulation + radiation map generation + visualization
+
 ```bash
-ros2 launch <package_name> sim.launch.py world:=lab_world
-ros2 run <package_name> mpc_controller --ros-args -p horizon:=30
+ros2 launch radiation_simulation reactor_room_spawn.launch.py
+```
+
+### 2) Waypoint-based autonomous navigation
+
+```bash
+ros2 launch radiation_simulation reactor_room_waypoint.launch.py
 ```
 
 ## Examples
-1. **MPC Tracking** – Humanoid walking in Gazebo  
+
+1. **Radiation Simulation** – TurtleBot3 with radiation source/sensor/obstacle plugins in Gazebo
+
    ```bash
-   ros2 launch mpc_humanoid walking.launch.py
-   ```
-2. **Impedance Control** – 7-DoF Arm tracking trajectory  
-   ```bash
-   ros2 launch impedance_control demo.launch.py
+   ros2 launch radiation_simulation reactor_room_spawn.launch.py
    ```
 
-## Citation
-If you use this code in your research, please cite:
+2. **Radiation-Aware Navigation** – Nav2 waypoint navigation with radiation-aware costmaps
 
-```bibtex
-@inproceedings{kim2025mpc,
-  title     = {MPC-based Whole-Body Control for Humanoid Robots},
-  author    = {Kim, Sanghyun and Others},
-  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
-  year      = {2025}
-}
+   ```bash
+   ros2 launch radiation_simulation reactor_room_waypoint.launch.py
+   ```
+
+## Repository Structure
+
+```bash
+<repo>/
+└── src/
+    └── radiation_simulation/
+        ├── CMakeLists.txt
+        ├── package.xml
+        ├── launch/
+        ├── src/
+        ├── include/
+        ├── config/
+        ├── rviz/
+        ├── urdf/
+        ├── models/
+        ├── map/
+        ├── data/
+        └── scripts/
 ```
 
+## Main Components
+
+* **Radiation Source Plugin**
+  Publishes source intensity from Gazebo models and allows runtime intensity updates.
+
+* **Radiation Sensor Plugin**
+  Detects radiation intensity using source distance, attenuation, and obstacle interaction, and publishes sensor pose and measurement topics.
+
+* **Radiation Obstacle Plugin**
+  Publishes attenuation coefficients for obstacle models based on material properties.
+
+* **Radiation Map Generator**
+  Builds a radiation-related occupancy/intensity representation and publishes visualization markers and map data.
+
+* **Radiation Visualization Node**
+  Displays source-wise and total detected radiation information for monitoring and debugging.
+
+* **Radiation Local / Global Costmap Layers**
+  Extends Nav2 layered costmaps with radiation-aware costs for avoidance behavior.
+
+* **Waypoint Navigation**
+  Executes waypoint-based autonomous navigation using Nav2 with radiation-aware planning support.
+
+## Assets and Provenance
+
+* The `reactor_room` world used in this repository is based on source code obtained from the work:
+  **Simulating Ionising Radiation in Gazebo for Robotic Nuclear Inspection Challenges**.
+* Radiation-related plugin and navigation components in this repository were developed by adapting and extending ideas from the references listed below.
+
+## Notes
+
+* This README intentionally focuses on simulation, plugins, radiation-aware costmaps, and autonomous navigation. 
+* This repository is intended to contain only source files. 
+* Some files may still contain machine-specific absolute paths. These should be converted to package-relative paths before sharing or deploying on another machine.
+* Depending on your experiment setup, additional ROS 2 packages such as `m-explore-ros2` may be required separately.
+* Some logs, messages, comments, or auxiliary outputs in this repository are written in **Korean**.
+
+## References
+
+The radiation-related plugin design was developed with reference to:
+
+* Wright, T., West, A., Licata, M., Hawes, N., and Lennox, B.
+  **Simulating Ionising Radiation in Gazebo for Robotic Nuclear Inspection Challenges**.
+  *Robotics*, 2021, 10(86).
+
+The radiation-aware navigation and layered costmap design was developed with reference to:
+
+* West, A., Wright, T., Tsitsimpelis, I., Groves, K., Joyce, M. J., and Lennox, B.
+  **Real-Time Avoidance of Ionising Radiation Using Layered Costmaps for Mobile Robots**.
+  *Frontiers in Robotics and AI*, 2022, 9:862067.
+
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
-Maintainer: [이름] (<email>)  
+
+Maintainer: jth8090 ([jth8090@khu.ac.kr](mailto:jth8090@khu.ac.kr))
 Lab: [RCI Lab @ Kyung Hee University](https://rcilab.khu.ac.kr)
+
+```
+```
