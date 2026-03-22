@@ -57,11 +57,11 @@ If you want to run frontier exploration experiments based on `m-explore-ros2` / 
 ## Installation
 
 ```bash
-mkdir -p ~/radiation_simulation_ws/src
-cd ~/radiation_simulation_ws/src
+mkdir -p ~/<workspace_name>/src
+cd ~/<workspace_name>/src
 git clone https://github.com/RCILab/RCI_radiation.git
 
-cd ~/radiation_simulation_ws
+cd ~/<workspace_name>
 colcon build --symlink-install
 source install/setup.bash
 ```
