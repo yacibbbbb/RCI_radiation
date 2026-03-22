@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 project(radiation_simulation)
 
-# Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 14)
 endif()
@@ -10,7 +9,6 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-# 필요한 패키지 찾기
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(gazebo_ros REQUIRED)
@@ -34,8 +32,6 @@ find_package(TBB REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(yaml-cpp REQUIRED)
 
-
-# Qt5 settings for MOC
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -50,7 +46,7 @@ include_directories(
 
 link_directories(${GAZEBO_LIBRARY_DIRS})
 
-# 방사선 소스 플러그인 라이브러리
+# source plugin
 add_library(radiation_source_plugin SHARED
   src/radiation_source_plugin.cpp
 )
@@ -62,7 +58,7 @@ ament_target_dependencies(radiation_source_plugin
 
 target_link_libraries(radiation_source_plugin ${GAZEBO_LIBRARIES})
 
-# 방사선 센서 플러그인 라이브러리
+# sensor plugin
 add_library(radiation_sensor_plugin SHARED
   src/radiation_sensor_plugin.cpp
 )
@@ -77,7 +73,7 @@ target_link_libraries(radiation_sensor_plugin
   ${rclcpp_LIBRARIES}
 )
 
-# 방사선 장애물 플러그인 라이브러리
+# obstacle plugin
 add_library(radiation_obstacle_plugin SHARED
   src/radiation_obstacle_plugin.cpp
 )
@@ -89,7 +85,7 @@ ament_target_dependencies(radiation_obstacle_plugin
 target_link_libraries(radiation_obstacle_plugin ${GAZEBO_LIBRARIES})
 
 
-# 시각화 노드
+# visualization node
 add_executable(radiation_visualization_node
   src/radiation_visualization_node.cpp
 )
@@ -120,7 +116,7 @@ target_link_libraries(radiation_map_generator
   gazebo_transport
   gazebo_sensors
   ignition-math6
-  tbb  # Intel TBB 스레딩 라이브러리
+  tbb
 )
 
 # Radiation Static Layer
@@ -176,11 +172,9 @@ target_link_libraries(radiation_virtual_sensor
   ${GAZEBO_LIBRARIES}
 )
 
-
 # plugin 등록
 pluginlib_export_plugin_description_file(nav2_costmap_2d plugin_description.xml)
 
-# 설치 대상 설정
 install(TARGETS
   radiation_source_plugin
   radiation_sensor_plugin
